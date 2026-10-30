@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Banking Application Server</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header class="topbar"><div class="brand"><span class="brand-icon">B</span><div><strong>BlueLedger</strong><small>Banking Application Server</small></div></div><span class="status"><i></i> Local demo</span></header>
+  <main class="layout">
+    <section class="hero"><div><p class="eyebrow">YOUR MONEY, ORGANIZED</p><h1>Simple banking.<br><span>Clear control.</span></h1><p class="sub">Create demo accounts, record deposits and withdrawals, and review transaction history.</p></div><div class="hero-card"><span class="card-label">DEMO ENVIRONMENT</span><div class="chip"></div><div class="card-bottom"><strong>BlueLedger</strong><span>Spring Boot · REST API</span></div></div></section>
+    <section class="panel">
+      <div class="panel-heading"><div><p class="eyebrow">GET STARTED</p><h2>Create an account</h2></div><span class="step">01</span></div>
+      <form id="create-form" class="form-grid">
+        <label>Account holder<input name="accountHolder" placeholder="e.g. Soumya Kumari" required maxlength="100"></label>
+        <label>Email address<input name="email" type="email" placeholder="you@example.com" required></label>
+        <button class="primary full" type="submit">Create demo account</button>
+      </form>
+      <p id="create-message" class="message" role="status"></p>
+    </section>
+    <section class="panel">
+      <div class="panel-heading"><div><p class="eyebrow">ACCOUNT OPERATIONS</p><h2>Manage an account</h2></div><span class="step">02</span></div>
+      <div class="form-grid">
+        <label>Account ID<input id="account-id" type="number" min="1" placeholder="Enter account ID"></label>
+        <button id="load-account" class="secondary" type="button">Load account</button>
+      </div>
+      <div id="account-card" class="account-card hidden"></div>
+      <div class="action-grid">
+        <form id="deposit-form"><h3>Deposit</h3><label>Amount (₹)<input name="amount" type="number" min="0.01" step="0.01" required placeholder="1000.00"></label><button class="primary" type="submit">Deposit funds</button></form>
+        <form id="withdraw-form"><h3>Withdraw</h3><label>Amount (₹)<input name="amount" type="number" min="0.01" step="0.01" required placeholder="250.00"></label><button class="secondary" type="submit">Withdraw funds</button></form>
+      </div>
+      <div class="history-heading"><h3>Recent transactions</h3><button id="refresh-history" class="text-button" type="button">Refresh</button></div>
+      <div id="history" class="history empty">Load an account to view transactions.</div>
+      <p id="operation-message" class="message" role="status"></p>
+    </section>
+    <p class="disclaimer">Educational demo only. Do not enter real banking credentials or use real financial information.</p>
+  </main>
+  <script src="/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+{
+  "info": {
+    "name": "Banking Application Server",
+    "description": "Starter API checks. Set baseUrl to http://localhost:8080 and create an account before using accountId.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {"key": "baseUrl", "value": "http://localhost:8080"},
+    {"key": "accountId", "value": "1"}
+  ],
+  "item": [
+    {"name": "Create account", "request": {"method": "POST", "header": [{"key": "Content-Type", "value": "application/json"}], "body": {"mode": "raw", "raw": "{\n  \"accountHolder\": \"Demo User\",\n  \"email\": \"demo@example.com\"\n}"}, "url": {"raw": "{{baseUrl}}/api/accounts", "host": ["{{baseUrl}}"], "path": ["api", "accounts"]}}},
+    {"name": "List accounts", "request": {"method": "GET", "url": {"raw": "{{baseUrl}}/api/accounts", "host": ["{{baseUrl}}"], "path": ["api", "accounts"]}}},
+    {"name": "Get account", "request": {"method": "GET", "url": {"raw": "{{baseUrl}}/api/accounts/{{accountId}}", "host": ["{{baseUrl}}"], "path": ["api", "accounts", "{{accountId}}"]}}},
+    {"name": "Deposit", "request": {"method": "POST", "header": [{"key": "Content-Type", "value": "application/json"}], "body": {"mode": "raw", "raw": "{\n  \"amount\": 1000.00\n}"}, "url": {"raw": "{{baseUrl}}/api/accounts/{{accountId}}/deposit", "host": ["{{baseUrl}}"], "path": ["api", "accounts", "{{accountId}}", "deposit"]}}},
+    {"name": "Withdraw", "request": {"method": "POST", "header": [{"key": "Content-Type", "value": "application/json"}], "body": {"mode": "raw", "raw": "{\n  \"amount\": 250.00\n}"}, "url": {"raw": "{{baseUrl}}/api/accounts/{{accountId}}/withdraw", "host": ["{{baseUrl}}"], "path": ["api", "accounts", "{{accountId}}", "withdraw"]}}},
+    {"name": "Balance", "request": {"method": "GET", "url": {"raw": "{{baseUrl}}/api/accounts/{{accountId}}/balance", "host": ["{{baseUrl}}"], "path": ["api", "accounts", "{{accountId}}", "balance"]}}},
+    {"name": "Transaction history", "request": {"method": "GET", "url": {"raw": "{{baseUrl}}/api/accounts/{{accountId}}/transactions", "host": ["{{baseUrl}}"], "path": ["api", "accounts", "{{accountId}}", "transactions"]}}}
+  ]
+}
